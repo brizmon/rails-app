@@ -1,0 +1,19 @@
+<a href='/todos/<%= @todo.id %>'><%= @todo.title %></a>
+<%= @todo.description %><br>
+
+<%= form_for :todo, method: 'patch', url: {action: 'update'} do |f| %>
+    <%= label(:todo, :title) %>
+    <%= f.text_field :title %><br>
+    <%= label(:todo, :description) %>
+    <%= f.text_field :description %><br>
+    <%= f.submit "Save Edits" %>
+<% end %>
+
+
+
+
+
+
+
+
+
