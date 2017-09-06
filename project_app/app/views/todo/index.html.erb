@@ -1,0 +1,21 @@
+<%= form_for :todo, method: 'post', url: {action: 'create'} do |f| %>
+    <%= label(:todo, :title) %>
+    <%= f.text_field :title %><br>
+    <%= label(:todo, :description) %>
+    <%= f.text_field :description %>
+<% end %>
+
+<br>
+
+<% @todos.each do |todo| %>
+    <a href='/todos/<%= todo.id %>'><%= todo.title %></a>
+    <%= todo.description %><br>
+    <%= link_to 'Delete Todo', todo, method: :delete %>
+    <br>
+<% end %>
+
+
+
+
+
+
