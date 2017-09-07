@@ -1,4 +1,4 @@
-<a href='/todos/<%= @todo.id %>'><%= @todo.title %></a>
+<a href='/todo/<%= @todo.id %>'><%= @todo.title %></a>
 <%= @todo.description %><br>
 
 <%= form_for :todo, method: 'patch', url: {action: 'update'} do |f| %>
@@ -8,11 +8,6 @@
     <%= f.text_field :description %><br>
     <%= f.submit "Save Edits" %>
 <% end %>
-
-
-
-
-
 
 
 

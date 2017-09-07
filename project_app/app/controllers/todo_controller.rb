@@ -11,12 +11,12 @@ class TodoController < ApplicationController
         todo = params['todo']
         Todo.create(title: todo['title'],
                     description: todo['description'])
-        redirect_to todos_path
+        redirect_to action: 'index'
     end
 
     def destroy 
         Todo.destroy(params['id'])
-        redirect_to todos_path
+        redirect_to action: 'index'
     end
 
     def update 
@@ -24,6 +24,6 @@ class TodoController < ApplicationController
         Todo.update(params[:id],
                     title: todo['title'],
                     description: todo['description'])
-        redirect_to todos_path
+        redirect_to todo_path
     end
 end
