@@ -1,19 +1,34 @@
-<%= form_for :todo, method: 'post', url: {action: 'create'} do |f| %>
-    <%= label(:todo, :title) %>
-    <%= f.text_field :title %><br>
-    <%= label(:todo, :description) %>
-    <%= f.text_field :description %>
-    <%= f.submit "Add New User" %>
-<% end %>
+
+    <%= form_for :todo, method: 'post', url: {action: 'create'} do |f| %>
+        <%= label(:todo, :title) %>
+        <%= f.text_field :title %><br>
+        <%= label(:todo, :description) %>
+        <%= f.text_field :description %>
+        <%= f.submit "Add New User" %>
+    <% end %>
+
+
 
 <br>
 
-<% @todos.each do |todo| %>
-    <a href='/todo/<%= todo.id %>'><%= todo.title %></a>
-    <%= todo.description %><br>
-    <%= link_to 'Delete Todo', todo, method: :delete %>
-    <br>
-<% end %>
+<div class="block">
+    <div class="columns is-multiline">
+        <% @todos.each do |todo| %>
+            <div class="column is-half card">
+                <div class="card-content">
+                    <a class="title" href='/todo/<%= todo.id %>'><%= todo.title %></a><br>
+                    <%= todo.description %><br>
+                </div>
+                <footer class="card-footer">
+                    <p class="card-footer-item"><i class="fa fa-trash-o" aria-hidden="true"></i><%= link_to 'Delete Todo', todo, method: :delete %></p>
+                    <p class="card-footer-item"><i class="fa fa-pencil" aria-hidden="true"></i><a href='/todo/<%= todo.id %>'><%= 'Edit Todo' %></a></p>
+                </footer>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
 
 
 
