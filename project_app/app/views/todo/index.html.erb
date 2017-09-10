@@ -1,16 +1,3 @@
-
-    <%= form_for :todo, method: 'post', url: {action: 'create'} do |f| %>
-        <%= label(:todo, :title) %>
-        <%= f.text_field :title %><br>
-        <%= label(:todo, :description) %>
-        <%= f.text_area :description %>
-        <%= f.submit "Add New Todo" %>
-    <% end %>
-
-
-
-<br>
-
 <div class="block">
     <div class="columns is-multiline">
         <% @todos.each do |todo| %>

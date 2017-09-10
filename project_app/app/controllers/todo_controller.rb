@@ -7,6 +7,10 @@ class TodoController < ApplicationController
         @todo = Todo.find_by(id: params[:id])
     end 
 
+    def new 
+        @todo = Todo.new
+    end
+
     def create 
         todo = params['todo']
         Todo.create(title: todo['title'],
