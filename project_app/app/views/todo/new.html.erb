@@ -1,7 +1,19 @@
-<%= form_for :todo, method: 'post', url: {action: 'create'} do |f| %>
-    <%= label(:todo, :title) %>
-    <%= f.text_field :title %><br>
-    <%= label(:todo, :description) %>
-    <%= f.text_area :description %>
-    <%= f.submit "Add New Todo" %>
-<% end %>
+<div class="column is-half is-offset-one-quarter">
+    <div class="card-content">
+        <div class="field">
+            <%= form_for :todo, method: 'post', url: {action: 'create'} do |f| %>
+                <label class="label"><%= label(:todo, :title) %></label>
+                <div class="control">
+                    <%= f.text_field :title, :class=>"input"%>
+                </div>
+                <label class="label"><%= label(:todo, :description) %></label>
+                <div class="control">
+                    <%= f.text_area :description, :class=>"input" %>
+                </div>
+                <div class="control has-text-centered">
+                    <%= f.submit "Add New Todo", :class=>"button is-primary" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

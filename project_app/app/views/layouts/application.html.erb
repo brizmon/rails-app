@@ -10,7 +10,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="site">
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <p class="navbar-item"><%= link_to("My Todo's", todo_index_url) %></p>
+            <p class="navbar-item"><%= link_to("Add new Todo", new_todo_path) %></p>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="site-content">
+      <section class="section">
+          <div class="container">
+            <%= yield %>
+          </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>Todo app</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

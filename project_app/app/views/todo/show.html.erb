@@ -1,13 +1,36 @@
-<a href='/todo/<%= @todo.id %>'><%= @todo.title %></a>
-<%= @todo.description %><br>
+<div class="column is-half card is-offset-one-quarter">
+    <div class="card-content">
+        <a class="title" href='/todo/<%= @todo.id %>'><%= @todo.title %></a><br>
+        <%= @todo.description %><br>
+        <div class="field">
+        <%= form_for :todo, method: 'patch', url: {action: 'update'} do |f| %>
+            <label class="label"><%= label(:todo, :title) %></label>
+            <div class="control">
+                <%= f.text_field :title, :class=>"input" %>
+            </div>
+            <label class="label"><%= label(:todo, :description) %></label>
+            <div class="control">
+                <%= f.text_field :description, :class=>"input" %>
+            </div>
+            <div class="control has-text-centered">
+                <%= f.submit "Save Edits", :class=>"button is-primary" %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>
 
-<%= form_for :todo, method: 'patch', url: {action: 'update'} do |f| %>
-    <%= label(:todo, :title) %>
-    <%= f.text_field :title %><br>
-    <%= label(:todo, :description) %>
-    <%= f.text_field :description %><br>
-    <%= f.submit "Save Edits" %>
-<% end %>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
